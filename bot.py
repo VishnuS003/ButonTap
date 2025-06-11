@@ -12,7 +12,7 @@ from fastapi import FastAPI
 api = FastAPI()
 
 # Telegram Bot config
-TOKEN = 7977201566:AAHan0eTiZV4ysjmGhM4uevvLcTw4qOuqfk  # ← Замени на свой токен
+TOKEN = "7977201566:AAHan0eTiZV4ysjmGhM4uevvLcTw4qOuqfk"  # ← Замени на свой токен
 
 bot = Bot(token=TOKEN, parse_mode=ParseMode.HTML)
 dp = Dispatcher()
