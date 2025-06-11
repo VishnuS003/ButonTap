@@ -1,11 +1,14 @@
 import asyncio
 from aiogram import Bot, Dispatcher, types
+from aiogram.enums import ParseMode
+from aiogram.types import Message
 
-bot = Bot(token="7977201566:AAHan0eTiZV4ysjmGhM4uevvLcTw4qOuqfk", parse_mode="HTML")
+# Замените на свой токен
+bot = Bot(token="7977201566:AAHan0eTiZV4ysjmGhM4uevvLcTw4qOuqfk", parse_mode=ParseMode.HTML)
 dp = Dispatcher()
 
 @dp.message(commands=["start"])
-async def start_handler(message: types.Message):
+async def start_handler(message: Message):
     await message.answer("Привет! Бот работает 🌷")
 
 async def main():
