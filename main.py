@@ -1,12 +1,17 @@
+import asyncio
 from aiogram import Bot, Dispatcher, types
-from aiogram.utils import executor
 
 bot = Bot(token="7977201566:AAHan0eTiZV4ysjmGhM4uevvLcTw4qOuqfk", parse_mode="HTML")
-dp = Dispatcher(bot)
+dp = Dispatcher()
 
-@dp.message_handler(commands=["start"])
+@dp.message(commands=["start"])
 async def start_handler(message: types.Message):
-    await message.reply("Привет! Бот работает 🌷")
+    await message.answer("Привет! Бот работает 🌷")
+
+async def main():
+    await bot.delete_webhook(drop_pending_updates=True)
+    dp.startup.register(lambda _: print("✅ Бот запущен"))
+    await dp.start_polling(bot)
 
 if __name__ == "__main__":
-    executor.start_polling(dp)
+    asyncio.run(main())
