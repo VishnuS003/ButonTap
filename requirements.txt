@@ -1,5 +1,6 @@
-echo "aiogram==3.4.1" > requirements.txt
-echo "fastapi==0.110.0" >> requirements.txt
-echo "uvicorn[standard]" >> requirements.txt
-echo "sqlalchemy==2.0.0" >> requirements.txt
-echo "asyncpg==0.29.0" >> requirements.txt
+aiogram==3.4.1
+fastapi==0.110.0
+uvicorn[standard]
+sqlalchemy==2.0.0
+asyncpg==0.29.0
+python-dotenv>=1.0.0

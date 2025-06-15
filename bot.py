@@ -1,10 +1,12 @@
 import asyncio
 import json
+import os
 from aiogram import Bot, Dispatcher, Router, types
 from aiogram.enums import ParseMode
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 from sqlalchemy.future import select
 from db import async_session, Player
+from dotenv import load_dotenv
 
 from fastapi import FastAPI
 
@@ -12,7 +14,10 @@ from fastapi import FastAPI
 api = FastAPI()
 
 # Telegram Bot config
-TOKEN = "7977201566:AAHan0eTiZV4ysjmGhM4uevvLcTw4qOuqfk"  # ← Замени на свой токен
+load_dotenv()
+TOKEN = os.getenv("BOT_TOKEN")
+if not TOKEN:
+    raise RuntimeError("BOT_TOKEN environment variable is not set")
 
 bot = Bot(token=TOKEN, parse_mode=ParseMode.HTML)
 dp = Dispatcher()
