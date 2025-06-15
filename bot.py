@@ -14,7 +14,7 @@ from fastapi import FastAPI
 load_dotenv()
 
 # Получение токена из переменной среды
-TOKEN = os.getenv("BOT_TOKEN")
+TOKEN = os.getenv("7977201566:AAHan0eTiZV4ysjmGhM4uevvLcTw4qOuqfk")
 if not TOKEN:
     raise RuntimeError("BOT_TOKEN environment variable is not set")
 
