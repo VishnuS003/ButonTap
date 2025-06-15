@@ -3,23 +3,25 @@ import json
 import os
 from aiogram import Bot, Dispatcher, Router, types
 from aiogram.enums import ParseMode
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from sqlalchemy.future import select
 from db import async_session, Player
 from dotenv import load_dotenv
 
 from fastapi import FastAPI
 
-# Создаём FastAPI-приложение
-api = FastAPI()
-
-# Telegram Bot config
-
+# Загрузка переменных из .env
 load_dotenv()
-TOKEN = os.getenv("7977201566:AAHan0eTiZV4ysjmGhM4uevvLcTw4qOuqfk")
+
+# Получение токена из переменной среды
+TOKEN = os.getenv("BOT_TOKEN")
 if not TOKEN:
     raise RuntimeError("BOT_TOKEN environment variable is not set")
 
+# Создаём FastAPI-приложение
+api = FastAPI()
+
+# Настройка Telegram-бота
 bot = Bot(token=TOKEN, parse_mode=ParseMode.HTML)
 dp = Dispatcher()
 router = Router()
@@ -27,7 +29,7 @@ router = Router()
 @router.message(commands=["start"])
 async def cmd_start(message: types.Message):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="Play 🚀", web_app=WebAppInfo(url="https://butontapgame.vercel.app"))],
+        [InlineKeyboardButton(text="Play 🌷", url="https://butontap.com")],
         [InlineKeyboardButton(text="Official channel", url="https://t.me/ButonTapGame")]
     ])
     await message.answer(
