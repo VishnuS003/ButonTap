@@ -12,7 +12,7 @@ load_dotenv()
 # Database connection string should be provided via the DATABASE_URL
 # environment variable. Example format:
 # postgresql+asyncpg://username:password@host:port/dbname
-DATABASE_URL = os.getenv("postgresql://gen_user:%5CX(2o%24Txzr%7C2V2@37.77.104.214:5432/default_db")
+DATABASE_URL = os.getenv("postgresql+asyncpg://gen_user:%5CX(2o%24Txzr%7C2V2@37.77.104.214:5432/default_db")
 if not DATABASE_URL:
     raise RuntimeError("DATABASE_URL environment variable is not set")
 
