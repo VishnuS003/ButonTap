@@ -4,20 +4,25 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>ButtonTap WebGL</title>
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <style>
     html, body {
-      padding: 0;
       margin: 0;
+      padding: 0;
       height: 100%;
+      width: 100%;
       background: #000;
       overflow: hidden;
     }
+
     #unity-canvas {
-      width: 100%;
-      height: 100%;
-      background: #231F20;
+      width: 100vw;
+      height: 100vh;
       display: block;
+      background: #231F20;
+      position: fixed;
+      top: 0;
+      left: 0;
     }
   </style>
 </head>
@@ -34,8 +39,8 @@
         companyName: "vishnus",
         productName: "buton_tap",
         productVersion: "1.0",
-        devicePixelRatio: 1 // чтобы избежать излишнего увеличения на Retina
-      }).then((unityInstance) => {
+        devicePixelRatio: 1
+      }).then(() => {
         console.log("✅ Unity WebGL загружен!");
       }).catch((message) => {
         console.error("❌ Ошибка запуска Unity WebGL:", message);
