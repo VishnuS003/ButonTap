@@ -1,0 +1,155 @@
+/Users/valeriaselest/Desktop/butontap-leaderboard/bot.py:18: DeprecationWarning: Passing `parse_mode`, `disable_web_page_preview` or `protect_content` to Bot initializer is deprecated. This arguments will be removed in 3.5.0 version
+Use `default=DefaultBotProperties(...)` instead.
+  bot = Bot(token=BOT_TOKEN, parse_mode=ParseMode.HTML)
+2025-06-16 02:18:06,073 INFO sqlalchemy.engine.Engine select pg_catalog.version()
+2025-06-16 02:18:06,074 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-06-16 02:18:06,723 INFO sqlalchemy.engine.Engine select current_schema()
+2025-06-16 02:18:06,723 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-06-16 02:18:07,386 INFO sqlalchemy.engine.Engine show standard_conforming_strings
+2025-06-16 02:18:07,386 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-06-16 02:18:07,875 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-06-16 02:18:07,880 INFO sqlalchemy.engine.Engine SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR(64) COLLATE "C" AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR(64) COLLATE "C"
+2025-06-16 02:18:07,881 INFO sqlalchemy.engine.Engine [generated in 0.00031s] ('players', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-06-16 02:18:08,586 INFO sqlalchemy.engine.Engine COMMIT
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.367442 seconds and try again... (tryings = 1, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.385894 seconds and try again... (tryings = 1, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.725311 seconds and try again... (tryings = 2, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 2.316932 seconds and try again... (tryings = 3, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.302237 seconds and try again... (tryings = 1, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.715634 seconds and try again... (tryings = 2, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.341959 seconds and try again... (tryings = 1, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Cause exception while process update id=859177816 by bot id=7977201566
+TelegramNetworkError: HTTP Client says - Request timeout error
+Traceback (most recent call last):
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/client/session/aiohttp.py", line 170, in make_request
+    async with session.post(
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiohttp/client.py", line 1197, in __aenter__
+    self._resp = await self._coro
+                 ^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiohttp/client.py", line 608, in _request
+    await resp.start(conn)
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 971, in start
+    with self._timer:
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiohttp/helpers.py", line 735, in __exit__
+    raise asyncio.TimeoutError from None
+TimeoutError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/fsm/middleware.py", line 41, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 156, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 148, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/bot.py", line 29, in cmd_start
+    await message.answer(
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/methods/base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/client/bot.py", line 492, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/client/session/base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/valeriaselest/Desktop/butontap-leaderboard/venv/lib/python3.11/site-packages/aiogram/client/session/aiohttp.py", line 175, in make_request
+    raise TelegramNetworkError(method=method, message="Request timeout error")
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - Request timeout error
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.304357 seconds and try again... (tryings = 1, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.203724 seconds and try again... (tryings = 1, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.191405 seconds and try again... (tryings = 1, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.432605 seconds and try again... (tryings = 1, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.244292 seconds and try again... (tryings = 1, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 60] Operation timed out
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7977201566)
+Received SIGTERM signal
