@@ -10,4 +10,3 @@ class Player(Base):
     taps = Column(Integer, default=0)
     diamonds = Column(Integer, default=0)
     weekly_taps = Column(Integer, default=0)  # 👈 ОБЯЗАТЕЛЕН
-
