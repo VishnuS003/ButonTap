@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>buton_tap</title>
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no" />
     <style>
       body {
         margin: 0;
         padding: 0;
         background: #231F20;
         text-align: center;
+        overflow: hidden;
       }
       canvas {
         width: 100%;
@@ -20,6 +21,22 @@
         outline: none;
       }
     </style>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+      // Ждём загрузки Telegram WebApp
+      window.Telegram.WebApp.ready();
+
+      // Сохраняем данные о пользователе
+      window.TelegramUserData = {
+        id: window.Telegram.WebApp.initDataUnsafe?.user?.id || "",
+        name: window.Telegram.WebApp.initDataUnsafe?.user?.first_name || ""
+      };
+
+      // Unity сможет вызвать этот метод
+      window.GetTelegramUserData = function () {
+        return JSON.stringify(window.TelegramUserData || {});
+      };
+    </script>
   </head>
   <body>
     <canvas id="unity-canvas" tabindex="-1"></canvas>
@@ -33,6 +50,10 @@
         companyName: "vishnus",
         productName: "buton_tap",
         productVersion: "1.0"
+      }).then((unityInstance) => {
+        console.log("Unity loaded successfully.");
+      }).catch((error) => {
+        console.error("Unity failed to load:", error);
       });
     </script>
   </body>
