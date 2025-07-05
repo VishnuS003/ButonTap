@@ -2,9 +2,8 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
-    <title> buton_tap</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes">
+    <title>buton_tap</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
     <style>
       body {
         margin: 0;
@@ -24,12 +23,12 @@
   </head>
   <body>
     <canvas id="unity-canvas" tabindex="-1"></canvas>
-    <script src="Build/butontapgame.loader.js"></script>
+    <script src="butontapgame.loader.js"></script>
     <script>
       createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/butontapgame.data",
-        frameworkUrl: "Build/butontapgame.framework.js",
-        codeUrl: "Build/butontapgame.wasm",
+        dataUrl: "butontapgame.data",
+        frameworkUrl: "butontapgame.framework.js",
+        codeUrl: "butontapgame.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "vishnus",
         productName: "buton_tap",
