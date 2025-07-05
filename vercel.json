@@ -2,7 +2,13 @@
   "version": 2,
   "builds": [{ "src": "index.html", "use": "@vercel/static" }],
   "routes": [
-    { "src": "/(.*\\.(js|wasm|data|framework.js|loader.js|png|jpg|json|ico))", "headers": { "Cache-Control": "public,max-age=31536000,immutable" } },
-    { "src": "/(.*)", "dest": "/index.html" }
+    {
+      "src": "/(.*\\.(js|wasm|data|framework.js|loader.js|json|ico|png|jpg|jpeg|webp|svg|ttf|woff|woff2))",
+      "headers": { "Cache-Control": "public,max-age=31536000,immutable" }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
   ]
 }
