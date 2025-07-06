@@ -25,8 +25,8 @@
   <!-- Telegram SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-  <!-- Unity Loader -->
-  <script src="public/butontapgame.loader.js"></script>
+  <!-- Unity Loader (без public/) -->
+  <script src="butontapgame.loader.js"></script>
 
   <script>
     // Проверка загрузки Telegram WebApp
@@ -48,9 +48,9 @@
 
     // Unity загрузка
     createUnityInstance(document.querySelector("#unity-canvas"), {
-      dataUrl: "public/butontapgame.data",
-      frameworkUrl: "public/butontapgame.framework.js",
-      codeUrl: "public/butontapgame.wasm",
+      dataUrl: "butontapgame.data",
+      frameworkUrl: "butontapgame.framework.js",
+      codeUrl: "butontapgame.wasm",
       streamingAssetsUrl: "StreamingAssets",
       companyName: "ButonTap",
       productName: "ButonTapGame",
