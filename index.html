@@ -25,11 +25,8 @@
   <!-- Telegram SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-  <!-- Unity Loader (без public/) -->
-  <script src="butontapgame.loader.js"></script>
-
+  <!-- Telegram Data -->
   <script>
-    // Проверка загрузки Telegram WebApp
     window.TelegramUserData = {};
     if (window.Telegram && Telegram.WebApp && Telegram.WebApp.initDataUnsafe) {
       const data = Telegram.WebApp.initDataUnsafe.user || {};
@@ -45,8 +42,11 @@
     } else {
       console.warn("⚠️ Telegram WebApp initData not found");
     }
+  </script>
 
-    // Unity загрузка
+  <!-- Unity Loader должен быть загружен последним -->
+  <script src="butontapgame.loader.js"></script>
+  <script>
     createUnityInstance(document.querySelector("#unity-canvas"), {
       dataUrl: "butontapgame.data",
       frameworkUrl: "butontapgame.framework.js",
@@ -56,7 +56,6 @@
       productName: "ButonTapGame",
       productVersion: "1.0"
     }).then(unityInstance => {
-      // Передача данных в Unity
       if (window.TelegramUserData && unityInstance?.SendMessage) {
         setTimeout(() => {
           unityInstance.SendMessage("BootstrapLoader", "SetTelegramData", JSON.stringify(window.TelegramUserData));
