@@ -25,8 +25,11 @@
   <!-- Telegram SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-  <!-- Telegram Data -->
+  <!-- Unity Loader -->
+  <script src="/butontapgame.loader.js"></script>
+
   <script>
+    // Проверка загрузки Telegram WebApp
     window.TelegramUserData = {};
     if (window.Telegram && Telegram.WebApp && Telegram.WebApp.initDataUnsafe) {
       const data = Telegram.WebApp.initDataUnsafe.user || {};
@@ -42,15 +45,12 @@
     } else {
       console.warn("⚠️ Telegram WebApp initData not found");
     }
-  </script>
 
-  <!-- Unity Loader должен быть загружен последним -->
-  <script src="butontapgame.loader.js"></script>
-  <script>
+    // Unity загрузка
     createUnityInstance(document.querySelector("#unity-canvas"), {
-      dataUrl: "butontapgame.data",
-      frameworkUrl: "butontapgame.framework.js",
-      codeUrl: "butontapgame.wasm",
+      dataUrl: "/butontapgame.data",
+      frameworkUrl: "/butontapgame.framework.js",
+      codeUrl: "/butontapgame.wasm",
       streamingAssetsUrl: "StreamingAssets",
       companyName: "ButonTap",
       productName: "ButonTapGame",
