@@ -1,4 +1,12 @@
-.DS_Store
-.DS_Store
-.DS_Store
-.vercel
+# Игнорировать ВСЕ .js кроме WebGL
+*.js
+!public/butontapgame.loader.js
+!public/butontapgame.framework.js
+
+# Игнорировать ВСЕ .wasm кроме WebGL
+*.wasm
+!public/butontapgame.wasm
+
+# Игнорировать ВСЕ .data кроме WebGL
+*.data
+!public/butontapgame.data
