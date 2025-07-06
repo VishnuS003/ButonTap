@@ -2,54 +2,68 @@
 <html lang="en-us">
 <head>
   <meta charset="utf-8">
-  <title>buton_tap</title>
+  <title>Buton Tap</title>
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
   <style>
-    body {
+    html, body {
+      background: #000;
       margin: 0;
       padding: 0;
-      background: #231F20;
-      text-align: center;
+      overflow: hidden;
     }
-    canvas {
-      width: 100%;
-      height: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      outline: none;
+    #unity-canvas {
+      width: 100vw;
+      height: 100vh;
+      display: block;
+      background: #000;
     }
   </style>
 </head>
 <body>
   <canvas id="unity-canvas" tabindex="-1"></canvas>
 
-  <!-- Telegram WebApp SDK -->
+  <!-- Telegram SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-  <!-- Unity loader -->
-  <script src="butontapgame.loader.js"></script>
+  <!-- Unity Loader -->
+  <script src="public/butontapgame.loader.js"></script>
 
   <script>
-    // Защита от ошибки, если Telegram SDK недоступен
-    const telegramData = (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe)
-      ? JSON.stringify(window.Telegram.WebApp.initDataUnsafe)
-      : "";
+    // Проверка загрузки Telegram WebApp
+    window.TelegramUserData = {};
+    if (window.Telegram && Telegram.WebApp && Telegram.WebApp.initDataUnsafe) {
+      const data = Telegram.WebApp.initDataUnsafe.user || {};
+      window.TelegramUserData = {
+        id: data.id || "",
+        first_name: data.first_name || "",
+        last_name: data.last_name || "",
+        username: data.username || "",
+        language_code: data.language_code || "",
+        photo_url: data.photo_url || ""
+      };
+      console.log("✅ Telegram data:", window.TelegramUserData);
+    } else {
+      console.warn("⚠️ Telegram WebApp initData not found");
+    }
 
-    // Запускаем Unity
+    // Unity загрузка
     createUnityInstance(document.querySelector("#unity-canvas"), {
-      dataUrl: "butontapgame.data",
-      frameworkUrl: "butontapgame.framework.js",
-      codeUrl: "butontapgame.wasm",
+      dataUrl: "public/butontapgame.data",
+      frameworkUrl: "public/butontapgame.framework.js",
+      codeUrl: "public/butontapgame.wasm",
       streamingAssetsUrl: "StreamingAssets",
-      companyName: "vishnus",
-      productName: "buton_tap",
+      companyName: "ButonTap",
+      productName: "ButonTapGame",
       productVersion: "1.0"
-    }).then((unityInstance) => {
-      // Передаём Telegram-данные в Unity (если есть)
-      if (telegramData && unityInstance) {
-        unityInstance.SendMessage("Bridge", "SetTelegramData", telegramData);
+    }).then(unityInstance => {
+      // Передача данных в Unity
+      if (window.TelegramUserData && unityInstance?.SendMessage) {
+        setTimeout(() => {
+          unityInstance.SendMessage("BootstrapLoader", "SetTelegramData", JSON.stringify(window.TelegramUserData));
+        }, 500);
       }
+    }).catch(err => {
+      console.error("❌ Ошибка запуска Unity:", err);
     });
   </script>
 </body>
