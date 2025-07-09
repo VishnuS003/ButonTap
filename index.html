@@ -25,17 +25,16 @@
   <!-- Telegram SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-  <!-- Unity Loader (добавляется программно) -->
+  <!-- Unity Loader (БЕЗ public/) -->
+  <script src="/butontapgame.loader.js"></script>
+
   <script>
-    const unityLoaderScript = document.createElement('script');
-    unityLoaderScript.src = "/butontapgame.loader.js";
-    unityLoaderScript.onload = () => {
+    window.addEventListener("load", () => {
       if (typeof createUnityInstance !== "function") {
-        console.error("❌ createUnityInstance is not defined — Unity loader не загрузился.");
+        console.error("❌ createUnityInstance is not defined — возможно, Unity loader не загрузился.");
         return;
       }
 
-      // Telegram WebApp данные
       window.TelegramUserData = {};
       const tgUser = window.Telegram?.WebApp?.initDataUnsafe?.user;
       if (tgUser) {
@@ -52,7 +51,6 @@
         console.warn("⚠️ Telegram WebApp initData not found");
       }
 
-      // Unity WebGL запуск
       createUnityInstance(document.querySelector("#unity-canvas"), {
         dataUrl: "/butontapgame.data",
         frameworkUrl: "/butontapgame.framework.js",
@@ -62,15 +60,15 @@
         productName: "ButonTapGame",
         productVersion: "1.0"
       }).then(unityInstance => {
-        setTimeout(() => {
-          unityInstance.SendMessage("BootstrapLoader", "SetTelegramData", JSON.stringify(window.TelegramUserData));
-        }, 500);
+        if (window.TelegramUserData && unityInstance?.SendMessage) {
+          setTimeout(() => {
+            unityInstance.SendMessage("BootstrapLoader", "SetTelegramData", JSON.stringify(window.TelegramUserData));
+          }, 500);
+        }
       }).catch(err => {
         console.error("❌ Ошибка запуска Unity:", err);
       });
-    };
-
-    document.body.appendChild(unityLoaderScript);
+    });
   </script>
 </body>
 </html>
